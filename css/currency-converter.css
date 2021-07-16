@@ -1,0 +1,75 @@
+.currency-text {
+    margin-left: .8rem;
+}
+
+.currency-text p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.currency-text .base {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.currency-text .secondary {
+    font-size: 2.5rem;
+    color: #000;
+}
+
+[data-background-color="dark"] .currency-text .secondary {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.currency-text .update-time {
+    color: #6c757d;
+    font-size: .8rem;
+}
+
+.exchangerate-api {
+    font-size: .8rem;
+    text-decoration: none !important;
+}
+
+.exchangerate-api:hover {
+    text-decoration: underline !important;
+}
+
+/* Hide buttons for changing numbers in number input */
+input::-webkit-inner-spin-button {
+    display: none !important;
+}
+
+.navbar-bg {
+    background-color: #fff !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Color Theme switch icon */
+.theme-icon {
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.theme-icon:hover {
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card {
+    border-color: #fff !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0.3rem !important;
+}
+
+/* Testing borders */
+.testb1 {
+    border: 1px solid red;
+}
+
+.testb2 {
+    border: 1px solid blue;
+}
+
+.testb3 {
+    border: 1px solid green;
+}

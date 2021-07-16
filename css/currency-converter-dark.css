@@ -1,0 +1,92 @@
+.currency-text {
+    margin-left: .8rem;
+}
+
+.currency-text p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.currency-text .base {
+    font-size: 1rem;
+    color: #c2c2c2;
+}
+
+.currency-text .secondary {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.currency-text .update-time {
+    color: #c2c2c2;
+    font-size: .8rem;
+}
+
+.exchangerate-api {
+    font-size: .8rem;
+    text-decoration: none !important;
+}
+
+.exchangerate-api:hover {
+    text-decoration: underline !important;
+}
+
+/* Hide buttons for changing numbers in number input */
+input::-webkit-inner-spin-button {
+    display: none !important;
+}
+
+.navbar-bg {
+    background-color: #202020 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Color Theme switch icon */
+.theme-icon {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.theme-icon:hover {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.card {
+    background-color: #202020 !important;
+    border-color: #202020 !important;
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.3rem !important;
+}
+
+/* Testing borders */
+.testb1 {
+    border: 1px solid red;
+}
+
+.testb2 {
+    border: 1px solid blue;
+}
+
+.testb3 {
+    border: 1px solid green;
+}
+
+/* Dark Mode Specific Classes */
+body {
+    background-color: #202020 !important;
+}
+
+.card-footer {
+    background-color: #202020 !important;
+}
+
+.form-control {
+    background-color: #202020 !important;
+    color: #fff !important;
+}
+
+.form-select {
+    background-color: #202020 !important;
+    /* Got this from inspect element and change stroke from %23343a40 to #fff to make the dropdown arrow white */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='#fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    color: #fff !important;
+}

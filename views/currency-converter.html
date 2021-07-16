@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Currency Converter</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/<%= cssFile %>">
+    <base href="/">
+</head>
+
+<nav class="navbar navbar-bg">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Currency Converter</span>
+        <% if (cssFile === 'currency-converter.css') { %>
+        <div class="ml-auto me-2"><a href="/switch-theme" class="theme-icon"><i class="fa fa-moon"></i></a></div>
+        <% } else { %>
+        <div class="ml-auto me-2"><a href="/switch-theme" class="theme-icon"><i class="fa fa-sun"></i></a></div>
+        <% } %>
+    </div>
+</nav>
+
+<body class="container-fluid">
+    <div id="currency-converter-data" data-conversion-rate="<%= conversionRate %>"
+        data-from-currency="<%= fromCurrency %>" data-to-currency="<%= toCurrency %>"></div>
+    <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 currency-text">
+                            <p id="base" class="base">1 <%= fromCurrencyText %> equals</p>
+                            <p id="secondary" class="secondary">
+                                <%= conversionRate.toFixed(2) + " " + toCurrencyText %></p>
+                            <p id="update-time" class="update-time">Last Updated:
+                                <%= lastTimeUpdate.toString().substring(0,22) + " UTC" %></p>
+                        </div>
+                    </div>
+                    <div class="row mt-3 ms-1">
+                        <div class="col-md-6 col-lg-2">
+                            <div class="form-group">
+                                <input type="number" id="fromValue" name="fromValue" class="form-control" step="0.01"
+                                    value="<%= fromValue %>" onkeydown="focusChange('from')" onkeyup="convert()"
+                                    onchange="focusChange('from'); convert()" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <select class="form-select" id="fromCurrency" name="fromCurrency"
+                                    onchange="currencyChange()">
+                                    <% for( let i = 0; i < currencyCodes.length; i++ ) { %>
+                                    <% if (currencyCodes[i][0] == 'USD' && fromCurrency == "") { %>
+                                    <option value="<%= currencyCodes[i][0] %>" selected>
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } else if (currencyCodes[i][0] == fromCurrency) { %>
+                                    <option value="<%= currencyCodes[i][0] %>" selected>
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } else { %>
+                                    <option value="<%= currencyCodes[i][0] %>">
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } %>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2 ms-1">
+                        <div class="col-md-6 col-lg-2">
+                            <div class="form-group">
+                                <input type="number" id="toValue" name="toValue" class="form-control" step="0.01"
+                                    value="<%= conversionRate.toFixed(2) %>" onkeydown="focusChange('to')"
+                                    onkeyup="convert()" onchange="focusChange('to'); convert()" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <select class="form-select" id="toCurrency" name="toCurrency"
+                                    onchange="currencyChange()">
+                                    <% for( let i = 0; i < currencyCodes.length; i++ ) { %>
+                                    <% if (currencyCodes[i][0] == 'USD' && toCurrency == "") { %>
+                                    <option value="<%= currencyCodes[i][0] %>" selected>
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } else if (currencyCodes[i][0] == toCurrency) { %>
+                                    <option value="<%= currencyCodes[i][0] %>" selected>
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } else { %>
+                                    <option value="<%= currencyCodes[i][0] %>">
+                                        <%= currencyCodes[i][0] %> - <%= currencyCodes[i][1] %>
+                                    </option>
+                                    <% } %>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <p class="ml-auto my-1"><a href="https://www.exchangerate-api.com/product/our-exchange-rate-data"
+                            target="_blank" class="text-secondary exchangerate-api">Currency Data is provided by
+                            ExchangeRate-API and is refreshed every 24 Hours Mon-Fri.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="jquery.3.2.1.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="bootstrap-notify.min.js"></script>
+
+<script src="/bootstrap.bundle.js"></script>
+<script src="/currency-converter.js"></script>
+
+</html>
